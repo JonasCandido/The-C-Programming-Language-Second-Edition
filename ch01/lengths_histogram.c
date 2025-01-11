@@ -54,12 +54,10 @@ int main()
 
   while (longestBar > 0) {
     for (i = 0; i < SIZE; ++i) {
-      if (lengths[i] != 0) {
-	if (lengths[i] < longestBar) {
-	  printf("%2c", ' ');
-	} else {
-	  printf("%2c", '*');
-	}
+      if (lengths[i] < longestBar) {
+	printf("%2c", ' ');
+      } else {
+	printf("%2c", '*');
       }
     }
     printf("\n");
@@ -67,9 +65,7 @@ int main()
   }
 
   for (i = 0; i < SIZE; ++i) {
-    if (lengths[i] != 0) {
-      printf("%2i", lengths[i]);
-    }
+    printf("%2i", lengths[i]);
   }
   printf("\n");
   
