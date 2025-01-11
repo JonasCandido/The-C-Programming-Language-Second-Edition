@@ -3,6 +3,13 @@
 /* print Celsius-Fahrenheit table
    for celsius = 0, 20, ..., 300; floating-point version */
 
+float toFahrenheit(float c);
+
+float toFahrenheit(float c)
+{
+  return ((9.0/5.0) * c) + 32;
+}
+
 int main()
 {
   float fahr, celsius;
@@ -15,7 +22,7 @@ int main()
   celsius = lower;
   printf("Celsius to Fahrenheit Table\n");
   while (celsius <= upper) {
-    fahr = ((9.0/5.0) * celsius) + 32;
+    fahr = toFahrenheit(celsius);
     printf("%3.0f %6.1f\n", celsius, fahr);
     celsius = celsius + step;
   }

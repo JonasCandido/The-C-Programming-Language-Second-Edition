@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-/* ŕint Fahrenheit-Celsius table */
+/* Pŕint Fahrenheit-Celsius table */
 int main()
 {
   int fahr;
