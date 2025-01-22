@@ -3,16 +3,16 @@
 #define MAXLINE 1000 /* maximum input line length */
 
 int get_line(char line[], int maxline);
-void remove_blanks_tabs(char line[], int length);
+void reverse_line(char line[], int length);
 
-/* remove training blanks and tabs from each line of input */
+/* reverses input line at a time */
 int main()
 {
   int len;
   char line[MAXLINE]; /* current input line */
-  
+
   while ((len = get_line(line, MAXLINE)) > 0) {
-    remove_blanks_tabs(line, len);
+    reverse_line(line, len);
     printf("%s", line);
   }
 
@@ -34,20 +34,23 @@ int get_line(char s[], int lim)
   return i;
 }
 
-void remove_blanks_tabs(char s[], int length) {
-  int i, limit;
-
+void reverse_line(char s[], int length) {
+  int i, start = 0, end;
+  char temp;
+   
   if(s[length - 1] == '\n') {
-      limit = length - 2;
+      end = length - 2;
   } else {
-      limit = length - 1;
+      end = length - 1;
   }
   
-  for (i = limit; i >= 0; --i) {
-      if (s[i] != ' ' && s[i] != '\t') {
-      break;
-    }
+  while (start < end) {
+    temp = s[start];
+    s[start] = s[end];
+    s[end] = temp;
+    start++;
+    end--;
   }
-  
-  s[++i] = '\0';
 }
+
+
